@@ -1,5 +1,2 @@
 # Binary redistributables for linux-firmware drivers
-sys-kernel/linux-firmware @BINARY-REDISTRIBUTABLE
-#media-fonts/kochi-substitute free-noncomm
-#media-fonts/symbola UFAS
-
+##sys-kernel/linux-firmware @BINARY-REDISTRIBUTABLE
