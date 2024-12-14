@@ -5,7 +5,7 @@ include /etc/sway/config.d/*
 set $lock swaylock -f -c 000000
 set $term foot
 set $launcher bemenu-run | xargs swaymsg exec --
-set $browser firefox
+set $browser librewolf
 set $codeEditor foot nano
 set $fileExplorer foot ranger
 set $musicPlayer foot cmus
@@ -36,7 +36,7 @@ input * {
 
 # Output Configuration
 # output * bg #0C050C solid_color
-output * bg /usr/share/backgrounds/sway/defaultbg.png fill
+output * bg /usr/share/backgrounds/sway/PinkCloudsbg.png fill
 
 ## output NAME mode 1600x900@143.996002HZ position 0,0
 ## run 'swaymsg -t get_outputs' in a terminal to get display device names
@@ -209,10 +209,12 @@ exec dbus-launch --exit-with-session wireplumber
 
 # Styling
 ## Run 'man 5 sway' for more information and options.
-client.focused 111111 8C1EFF FFFFFF EE22FF
+client.focused 256aad 3487b4 FFFFFF 256aad
+#111111 8C1EFF FFFFFF EE22FF
 #111111 661177 FFFFFF EE22FF
-client.focused_inactive 330044 220033 CCCCCC
-client.unfocused 330044 220033 CCCCCC
+client.focused_inactive 330044 220033 FFFFFF
+#client.unfocused 849eaf 220033 CCCCCC
+client.unfocused 849eaf 849eaf CCCCCC
 client.urgent EE0011 CC0022 FFFFFF FF0033
 focus_follows_mouse no
 focus_wrapping yes

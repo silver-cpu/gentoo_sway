@@ -5,7 +5,6 @@ USE="-*"
 ACCEPT_LICENSE="-* @FREE"
 
 # Compilation flags
-CPU_FLAGS_X86="aes avx f16c mmx mmxext pclmul popcnt rdrand sse sse2 sse3 sse4_1 sse4_2 ssse3"
 WARNING_FLAGS="-Werror=odr -Werror=lto-type-mismatch -Werror=strict-aliasing"
 COMMON_FLAGS="-O3 -pipe -march=native -flto=7 ${WARNING_FLAGS}"
 CFLAGS="${COMMON_FLAGS}"
@@ -15,22 +14,19 @@ FFLAGS="${COMMON_FLAGS}"
 LC_MESSAGES=C.utf8
 
 ## THREADS = min(nproc, free --giga), eg: -j16 -l16
-MAKEOPTS="-j4 -l4"
+MAKEOPTS="-j[THREADS] -l[THREADS]"
 
 RUSTFLAGS="-C target-cpu=native -C opt-level=3"
 GRUB_PLATFORMS="efi-64"
-#ADDED NOT OG VID, NEEDED BECAUSE NEW UPDATE?
-LLVM_SLOT="18"
 
 # Global USE flags
 USE="${USE} \
-    bluetooth \
     alsa crypt dbus hardened idn kmod lto man multilib \
     ncurses nls openrc openssl pam readline threads udev \
     unicode verify-sig vulkan wayland wifi xattr xtpax"
 
 ## 'amdgpu radeonsi', 'nouveau' (Nvidia), 'intel' or 'intel i915', 'vesa' (generic)
-VIDEO_CARDS="intel i915"
+VIDEO_CARDS=""
 
 CURL_SSL="openssl"
 PAX_MARKINGS="xt"
@@ -52,9 +48,11 @@ LCD_DEVICES="ncurses text"
 INPUT_DEVICES="libinput"
 
 # Set package mirrors
-GENTOO_MIRRORS="https://mirrors.mit.edu/gentoo-distfiles/ \
+GENTOO_MIRRORS="https://mirror.clarkson.edu/gentoo/ \
+    rsync://mirror.clarkson.edu/gentoo/ \
+    rsync://rsync.gtlib.gatech.edu/gentoo \
+    https://mirrors.mit.edu/gentoo-distfiles/ \
+    rsync://mirrors.mit.edu/gentoo-distfiles/ \
     https://gentoo.osuosl.org/ \
     https://mirrors.rit.edu/gentoo/ \
-    ftp://mirrors.rit.edu/gentoo/ \
-    rsync://mirrors.rit.edu/gentoo/ \
     https://mirror.servaxnet.com/gentoo/"
